@@ -132,11 +132,11 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 2px 20px;
-    background-color: #560dad; /* Fond violet cohérent */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Ombre légère */
-    color: #fff; /* Texte blanc */
-    position: sticky; /* Fixe le header au haut */
+    padding: 10px 20px;
+    background-color: #560dad;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    color: #fff;
+    position: sticky;
     top: 0;
     z-index: 1000;
     transition: background-color 0.3s ease, padding 0.3s ease;
@@ -144,14 +144,14 @@ header {
 
 /* Animation pour réduire la taille lors du défilement */
 header.scroll {
-    background-color: #7c3ce2; /* Fond légèrement plus clair */
-    padding: 10px 20px;
+    background-color: #7c3ce2;
+    padding: 5px 20px;
 }
 
 /* Section des icônes sociales */
 header .social-top ul {
     display: flex;
-    gap: 20px; /* Espace entre les icônes */
+    gap: 20px;
     list-style: none;
     margin: 0;
     padding: 0;
@@ -163,49 +163,36 @@ header .social-top li {
 
 /* Liens des icônes sociales */
 header .social-top a {
-    color: #fff; /* Texte blanc pour cohérence */
-    font-size: 20px; /* Taille des icônes légèrement plus grande */
+    color: #fff;
+    font-size: 20px;
     transition: transform 0.3s ease, color 0.3s ease;
 }
 
 header .social-top a:hover {
-    color: #d9b3ff; /* Couleur de survol */
-    transform: scale(1.2); /* Agrandissement léger au survol */
+    color: #d9b3ff;
+    transform: scale(1.2);
 }
-
-/* Responsive Header */
-@media (max-width: 768px) {
-    header {
-        flex-direction: column; /* Empile les éléments verticalement */
-        align-items: center;
-    }
-
-    header .social-top ul {
-        margin-top: 10px;
-        gap: 15px;
-    }
-}
-
 
 /* Navigation */
 #navbar {
-    position: sticky; /* Fixé en haut lors du défilement */
-    top: 0; /* Toujours collé au sommet */
-    background-color: #560dad; /* Fond violet */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Ombre élégante */
-    z-index: 1000; /* Assure que la navigation reste au-dessus */
+    position: sticky;
+    top: 0;
+    background-color: #560dad;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
     padding: 10px 20px;
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 #navbar:hover {
-    background-color: #7c3ce2; /* Légèrement plus clair au survol */
+    background-color: #7c3ce2;
 }
 
 #navbar ul {
     display: flex;
     justify-content: center;
-    gap: 20px;
+    flex-wrap: wrap;
+    gap: 10px;
     list-style: none;
     margin: 0;
     padding: 0;
@@ -216,9 +203,9 @@ header .social-top a:hover {
 }
 
 #navbar a {
-    color: #fff; /* Texte blanc */
+    color: #fff;
     text-decoration: none;
-    padding: 10px 20px;
+    padding: 8px 15px;
     font-size: 16px;
     font-weight: bold;
     text-transform: uppercase;
@@ -226,16 +213,51 @@ header .social-top a:hover {
     transition: background-color 0.3s ease, transform 0.3s ease, color 0.3s ease;
 }
 
-#navbar a:hover {
-    background-color: #9a64ff; /* Couleur de survol */
-    color: #fff; /* Maintient le texte blanc */
-    transform: scale(1.1); /* Agrandit légèrement */
+#navbar a:hover, #navbar a.active {
+    background-color: #9a64ff;
+    color: #fff;
+    transform: scale(1.05);
 }
 
-/* Effet actif (pour la section en cours de navigation) */
-#navbar a.active {
-    background-color: #7c3ce2; /* Fond spécifique à l'élément actif */
-    color: #fff; /* Texte blanc */
+/* Responsive styles */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: center;
+        padding: 10px;
+    }
+
+    header .social-top ul {
+        margin-top: 10px;
+        gap: 15px;
+    }
+
+    #navbar ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #navbar a {
+        display: block;
+        width: 100%;
+        text-align: center;
+        padding: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    header .social-top ul {
+        gap: 10px;
+    }
+
+    header .social-top a {
+        font-size: 18px;
+    }
+
+    #navbar a {
+        font-size: 14px;
+        padding: 8px 12px;
+    }
 }
 
 /* Ani
