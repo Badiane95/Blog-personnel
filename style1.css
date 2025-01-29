@@ -38,7 +38,7 @@ body {
 h1, h3, h4 {
     font-family: Bogart, Arial, sans-serif;
     background: rgb(86, 13, 173);
-    padding: 30px;
+    padding: 10px;
     border-radius: 5px;
     color: rgb(255, 255, 255);
     margin: 30px auto; /* Augmenté et centré horizontalement */
@@ -335,7 +335,6 @@ header .social-top a:hover {
 /* Section CV */
 #cv {
     text-align: center;
-    padding: 60px 0;
     margin: auto;
 }
 
