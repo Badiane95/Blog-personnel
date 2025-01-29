@@ -1,16 +1,19 @@
-/* Palette violette */
 :root {
-    --primary-color: #6a0dad; /* Violet principal */
-    --secondary-color: #8a2be2; /* Violet plus clair pour les hover ou les accents */
-    --background-light: #f0e6f6; /* Fond clair */
-    --text-light: #fff; /* Texte clair */
+    --primary: #6a0dad;
+    --secondary: #8a2be2;
+    --bg-light: #f0e6f6;
+    --text-light: #fff;
+    --shadow-sm: 0 2px 4px rgba(0,0,0,0.1);
+    --shadow-md: 0 4px 8px rgba(0,0,0,0.1);
+    --transition: 0.3s ease;
 }
 
+
 /* Réinitialisation de base */
-* {
+*, *::before, *::after {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
 
 body {
@@ -364,7 +367,7 @@ header .social-top a:hover {
   .cv-button {
     display: inline-block;
     padding: 10px 20px;
-    background-color: var(--primary-color);
+    background-color: var(--primary);
     color: var(--text-light);
     text-decoration: none;
     font-size: 16px;
@@ -375,13 +378,13 @@ header .social-top a:hover {
   
 
 .cv-button:hover {
-    background-color: var(--secondary-color);
+    background-color: var(--secondary);
 }
 
 #cv img {
     width: 100%;
     max-width: 800px;
-    border: 2px solid var(--primary-color);
+    border: 2px solid var(--primary);
     border-radius: 10px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
@@ -480,7 +483,7 @@ header .social-top a:hover {
 
 /* Footer */
 footer {
-    background: var(--primary-color);
+    background: var(--primary);
     color: var(--text-light);
     text-align: center;
     padding: 20px 0;
@@ -787,7 +790,7 @@ body, html {
 #lettre-motivation .cv-button {
     display: inline-block;
     padding: 10px 20px;
-    background-color: var(--primary-color);
+    background-color: var(--primary);
     color: var(--text-light);
     text-decoration: none;
     font-size: 16px;
@@ -798,6 +801,6 @@ body, html {
 }
 
 #lettre-motivation .cv-button:hover {
-    background-color: var(--secondary-color);
+    background-color: var(--secondary);
 }
 
