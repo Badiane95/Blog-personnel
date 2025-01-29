@@ -103,3 +103,25 @@ document.getElementById("comment-form").addEventListener("submit", function (eve
     // Réinitialise le formulaire
     document.getElementById("comment-form").reset();
 });
+document.addEventListener('DOMContentLoaded', function() {
+    const images = document.querySelectorAll('.clickable-image');
+    const modal = document.createElement('div');
+    modal.classList.add('modal');
+    document.body.appendChild(modal);
+
+    images.forEach(img => {
+        img.addEventListener('click', function() {
+            modal.style.display = "block";
+            modal.innerHTML = `
+                <span class="close">&times;</span>
+                <img class="modal-content" src="${this.src}">
+            `;
+        });
+    });
+
+    modal.addEventListener('click', function(e) {
+        if (e.target === modal || e.target.classList.contains('close')) {
+            modal.style.display = "none";
+        }
+    });
+});
