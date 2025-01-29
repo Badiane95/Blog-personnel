@@ -101,37 +101,24 @@ document.addEventListener("DOMContentLoaded", () => {
             comments.push(newComment);
             newCommentInput.value = "";
             renderComments();
-        } else {
-            alert("Le commentaire ne peut pas être vide.");
         }
     });
-
-    // Simulate real-time notifications (interval)
-    setInterval(() => {
-        if (comments.length > 0) {
-            const newNotification = `Nouveau commentaire de "${comments[comments.length - 1].author}" : "${comments[comments.length - 1].text}"`;
-            console.log(newNotification);
-            alert(newNotification); // You can replace this with a toast notification
-        }
-    }, 15000);
 });
+
 document.getElementById("comment-form").addEventListener("submit", function (event) {
     event.preventDefault();
 
     const name = document.getElementById("name").value || "Utilisateur";
     const comment = document.getElementById("comment").value;
 
-    if (comment.trim() === "") {
-        alert("Veuillez écrire un commentaire.");
-        return;
+    if (comment.trim() !== "") {
+        // Ajoute le commentaire au conteneur
+        const commentsList = document.getElementById("comments-list");
+        const newComment = document.createElement("li");
+        newComment.innerHTML = `<strong>${name} :</strong> ${comment}`;
+        commentsList.appendChild(newComment);
+
+        // Réinitialise le formulaire
+        document.getElementById("comment-form").reset();
     }
-
-    // Ajoute le commentaire au conteneur
-    const commentsList = document.getElementById("comments-list");
-    const newComment = document.createElement("li");
-    newComment.innerHTML = `<strong>${name} :</strong> ${comment}`;
-    commentsList.appendChild(newComment);
-
-    // Réinitialise le formulaire
-    document.getElementById("comment-form").reset();
 });
