@@ -38,23 +38,47 @@ body {
 h1, h3, h4 {
     font-family: Bogart, Arial, sans-serif;
     background: rgb(86, 13, 173);
-    padding: 10px;
+    padding: 30px;
     border-radius: 5px;
     color: rgb(255, 255, 255);
-    margin: 20px;
+    margin: 30px auto; /* Augmenté et centré horizontalement */
+    max-width: 800px; /* Limite la largeur pour les grands écrans */
+    text-align: center; /* Centre le texte */
+    width: 90%
 }
+
 .back {
-    padding: 40px; /* Espace interne de la carte */
-    border-radius: 12px; /* Coins arrondis */
+    padding: 40px;
+    border-radius: 12px;
     color: #fff;
-    background-color: #560dad; /* Fond de la carte */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre légère autour de la carte */
-    max-width: 800px; /* Largeur maximale de la carte */
-    width: 100%; /* La carte prend toute la largeur possible, jusqu'à max-width */
-    text-align: center; /* Centrer le texte dans la carte */
-    transition: transform 0.3s ease; /* Effet de transition au survol */
-    
+    background-color: #560dad;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    width: 90%; /* Réduit légèrement pour les petits écrans */
+    margin: 30px auto; /* Centre la carte et ajoute de l'espace vertical */
+    text-align: center;
+    transition: transform 0.3s ease;
 }
+
+/* Ajout d'un effet de survol */
+.back:hover {
+    transform: translateY(-5px);
+}
+
+/* Media query pour les écrans plus petits */
+@media (max-width: 768px) {
+    h1, h3, h4 {
+        padding: 20px;
+        margin: 20px auto;
+        max-width: 90%;
+    }
+
+    .back {
+        padding: 30px;
+        width: 95%;
+    }
+}
+
     
 
 /* Style de la section des projets */
@@ -95,12 +119,13 @@ h1, h3, h4 {
 
 /* Section globale et centrage */
 .container {
-    width: 50%;
-    max-width: 1200px;
-    margin: auto;
-    overflow: hidden;
-    text-align: center;
-}
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+
 
 /* Style général du header */
 header {
@@ -311,10 +336,11 @@ header .social-top a:hover {
 #cv {
     text-align: center;
     padding: 60px 0;
-    margin: 5%; 
+    margin: auto;
 }
 
-.cv-button {
+  
+  .cv-button {
     display: inline-block;
     padding: 10px 20px;
     background-color: var(--primary-color);
@@ -323,17 +349,17 @@ header .social-top a:hover {
     font-size: 16px;
     border-radius: 4px;
     transition: background-color 0.3s ease;
-    margin: 5%; 
-}
+    margin: auto;
+  }
+  
 
 .cv-button:hover {
     background-color: var(--secondary-color);
-    
 }
 
 #cv img {
-    width: 50%;
-    max-width: 500px;
+    width: 100%;
+    max-width: 800px;
     border: 2px solid var(--primary-color);
     border-radius: 10px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
@@ -746,7 +772,8 @@ body, html {
     font-size: 16px;
     border-radius: 4px;
     transition: background-color 0.3s ease;
-    margin: 5%;
+    margin: auto;
+    
 }
 
 #lettre-motivation .cv-button:hover {
