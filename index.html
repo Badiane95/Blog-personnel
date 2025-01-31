@@ -11,6 +11,7 @@
         <script src="script.js"></script>
         <script src="comments.js" defer></script>
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        
     
         <title>Portfolio de Falou Badiane</title>
       
@@ -208,41 +209,42 @@
         
         
         <script>
-           document.getElementById('contact-form').addEventListener('submit', function (e) {
-    e.preventDefault(); // Empêche le rechargement de la page
+          document.addEventListener('DOMContentLoaded', () => {
+    const contactForm = document.getElementById('contact-form');
+    if (contactForm) {
+        contactForm.addEventListener('submit', handleSubmit);
+    }
 
-    const formData = new FormData(this);
+    async function handleSubmit(e) {
+        e.preventDefault();
+        const formData = new FormData(this);
 
-    // Envoi des données via fetch()
-    fetch('send_mail.php', {
-        method: 'POST',
-        body: formData
-    })
-    .then(response => response.json())
-    .then(data => {
-        if (data.status === "success") {
-            Swal.fire({
-                title: "Message envoyé !",
-                text: data.message,
-                icon: "success",
+        try {
+            const response = await fetch('send_mail.php', {
+                method: 'POST',
+                body: formData
             });
-            this.reset(); // Réinitialise le formulaire
-        } else {
-            Swal.fire({
+            const data = await response.json();
+
+            if (data.status === "success") {
+                await Swal.fire({
+                    title: "Message envoyé !",
+                    text: data.message,
+                    icon: "success",
+                });
+                this.reset();
+            } else {
+                throw new Error(data.message);
+            }
+        } catch (error) {
+            console.error("Erreur :", error);
+            await Swal.fire({
                 title: "Erreur",
-                text: data.message,
+                text: error.message || "Une erreur s'est produite. Veuillez réessayer plus tard.",
                 icon: "error",
             });
         }
-    })
-    .catch(error => {
-        Swal.fire({
-            title: "Erreur",
-            text: "Une erreur s'est produite. Veuillez réessayer plus tard.",
-            icon: "error",
-        });
-        console.error("Erreur :", error);
-    });
+    }
 });
 
         </script>
