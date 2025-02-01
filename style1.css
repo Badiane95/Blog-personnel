@@ -804,3 +804,93 @@ body, html {
     background-color: var(--secondary);
 }
 
+
+/* Pour les écrans moyens (tablettes et petits ordinateurs) */
+@media screen and (max-width: 992px) {
+    .container {
+        width: 95%;
+    }
+    
+    .card-container,
+    .skills-grid,
+    .projects-horizontal,
+    #cv img,
+    #lettre-motivation img,
+    #contact-form {
+        width: 100%;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+    
+    .projects-horizontal {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .project-details {
+        width: 100%;
+        margin-bottom: 30px;
+    }
+}
+
+/* Pour les tablettes */
+@media screen and (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    nav ul {
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    
+    nav ul li {
+        margin: 5px 10px;
+    }
+    
+    .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Pour les smartphones */
+@media screen and (max-width: 480px) {
+    body {
+        font-size: 14px;
+    }
+    
+    .social-top {
+        margin-bottom: 15px;
+    }
+    
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    #contact-form input,
+    #contact-form textarea {
+        width: 100%;
+        margin-bottom: 15px;
+    }
+    
+    .project-details img,
+    .project-details iframe {
+        width: 100%;
+        height: auto;
+    }
+}
+
+  
