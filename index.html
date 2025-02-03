@@ -35,7 +35,7 @@
                 <span></span>
             </div>
             <ul class="nav-links">
-                <li><a href="#about">À propos</a></li>
+                <li><a href="#About">À propos</a></li>
                 <li><a href="#portfolio">Portfolio</a></li>
                 <li><a href="#cv-lettre">CV et Lettre</a></li>
                 <li><a href="#contact">Contact</a></li>
@@ -205,6 +205,7 @@
                 </form>
             </div>
         </section>
+        <br>
         
         
         
@@ -248,23 +249,23 @@
 });
 
         </script>
-        
+       <!--
     </main>
     <div class="comments-section">
         <h3>Commentaires</h3>
 
-        <!-- Zone de saisie pour un nouveau commentaire -->
+        
         <div class="new-comment">
             <textarea id="new-comment-input" placeholder="Laissez un commentaire..."></textarea>
             <button id="post-comment-btn">Poster</button>
         </div>
 
-        <!-- Liste des commentaires -->
+        Liste des commentaires 
         <div id="comments-section">
             <h3>Commentaires</h3>
             <ul id="comments-list"></ul>
         </div>
-        
+         -->
     </div>
 
     <footer>
@@ -290,12 +291,15 @@
             lightboxOverlay.classList.remove('active');
         }
     
-        // Ajoute des événements de clic pour les images et les iframes
-        document.querySelectorAll('.project-details img, .project-details iframe').forEach(item => {
-            item.addEventListener('click', () => openLightbox(item));
-        });
-    
-        document.querySelector('.lightbox-overlay').addEventListener('click', closeLightbox);
+        document.addEventListener('DOMContentLoaded', function() {
+    const lightboxOverlay = document.querySelector('.lightbox-overlay');
+    if (lightboxOverlay) {
+        lightboxOverlay.addEventListener('click', closeLightbox);
+    } else {
+        console.log('Élément .lightbox-overlay non trouvé');
+    }
+});
+
     </script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {

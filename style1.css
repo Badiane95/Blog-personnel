@@ -256,37 +256,6 @@ header .social-top a:hover {
     border-radius: 10px;
 }
 
-/* Section CV */
-#cv {
-    text-align: center;
-    margin: auto;
-}
-
-  
-  .cv-button {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: var(--primary);
-    color: var(--text-light);
-    text-decoration: none;
-    font-size: 16px;
-    border-radius: 4px;
-    transition: background-color 0.3s ease;
-    margin: auto;
-  }
-  
-
-.cv-button:hover {
-    background-color: var(--secondary);
-}
-
-#cv img {
-    width: 100%;
-    max-width: 700px;
-    border: 2px solid var(--primary);
-    border-radius: 10px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-}
 
 /* Section Contact */
 #contact .container {
@@ -386,6 +355,7 @@ footer {
     color: var(--text-light);
     text-align: center;
     padding: 20px 0;
+ 
 }
 
 /* Responsivité pour les petits écrans */
