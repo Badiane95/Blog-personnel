@@ -7,6 +7,7 @@
         <link rel="shortcut icon" href="favicon.png" type="image/png">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
         <link rel="stylesheet" href="style1.css">
+        <link rel="stylesheet" href="navigation.css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
         <link rel="stylesheet" href="comments.css">
         <script src="script.js"></script>
@@ -28,17 +29,17 @@
         </div>
         
         <nav id="navbar">
-            <div class="h2">
-                <ul>
-                    <li><a href="#about">À propos</a></li>
-
-                    <li><a href="#portfolio">Portfolio</a></li>
-
-                    <li><a href="#cv-download">CV</a></li>
-
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
+            <ul class="nav-links">
+                <li><a href="#about">À propos</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#cv-lettre">CV et Lettre</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
         </nav>
     </header>
     
@@ -99,10 +100,12 @@
             </div>
         </section>
         
-        
+       
         <section id="portfolio">
+            <br>
+            <br>
             <div class="container">
-                <h3>Mon portfolio</h3>
+                <h3>Portfolio</h3>
                 <div class="projects-container">
                     
                     <!-- Conteneur des projets -->
@@ -148,35 +151,31 @@
             </div>
         </section>
         
-<!-- Section CV -->
-<section id="cv">
-    <div class="container">
-        <h3>Mon CV</h3>
-        <img src="CV-stage.png" alt="Mon CV" style="width: 100%; height: auto; border-radius: 10px;">
-    </div>
-</section>
-
-        <!-- Section pour télécharger le CV -->
-        <section id="cv-download">
+        <section id="cv-lettre">
             <div class="container">
-                <p class="back">Vous pouvez télécharger mon CV en format PDF en cliquant sur le bouton ci-dessous :</p>
-                <a href="Badiane-Falou-cv.pdf.pdf" download="Badiane-Falou-cv.pdf.pdf" class="cv-button">Télécharger le CV</a>
+                <h3>CV et Lettre de Motivation</h3>
+                <div class="documents-container">
+                    <div class="document-wrapper" id="cv-wrapper">
+                        <h3>Mon CV</h3>
+                        <img src="CV-stage.png" alt="Mon CV" class="document-image">
+                        <a href="Badiane-Falou-cv.pdf" download="Badiane-Falou-cv.pdf" class="download-button">Télécharger le CV</a>
+                    </div>
+                    <div class="document-wrapper" id="lettre-wrapper">
+                        <h3>Ma Lettre de Motivation</h3>
+                        <img src="lettre-motivation.png" alt="Ma Lettre de Motivation" class="document-image">
+                        <a href="Badiane-Falou-lettre-motivation.pdf" download="Badiane-Falou-lettre-motivation.pdf" class="download-button">Télécharger la Lettre de Motivation</a>
+                    </div>
+                </div>
             </div>
         </section>
         
-        <!-- Section Lettre de Motivation -->
-<section id="lettre-motivation">
-    <div class="container">
-        <h3>Ma Lettre de Motivation</h3>
-        <img src="lettre-motivation.png" alt="Ma Lettre de Motivation" style="width: 100%; height: auto; border-radius: 10px;">
-        <p class="back">Vous pouvez télécharger ma lettre de motivation en format PDF en cliquant sur le bouton ci-dessous :</p>
-        <a href="Badiane-Falou-lettre-motivation.pdf" download="Badiane-Falou-lettre-motivation.pdf" class="cv-button">Télécharger la Lettre de Motivation</a>
-    </div>
-</section>
+        
 
         
         <!-- Section Contact -->
         <section id="contact">
+            <br>
+            <br>
             <div class="container">
                 <h3>Contactez-moi</h3>
                 <form id="contact-form">
@@ -298,6 +297,38 @@
     
         document.querySelector('.lightbox-overlay').addEventListener('click', closeLightbox);
     </script>
-    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const cvWrapper = document.getElementById('cv-wrapper');
+            const lettreWrapper = document.getElementById('lettre-wrapper');
+            const overlay = document.createElement('div');
+            overlay.classList.add('overlay');
+            document.body.appendChild(overlay);
+        
+            function toggleExpand(wrapper) {
+                wrapper.classList.toggle('expanded');
+                overlay.style.display = wrapper.classList.contains('expanded') ? 'block' : 'none';
+            }
+        
+            cvWrapper.addEventListener('click', function(e) {
+                if (e.target.tagName !== 'A') {
+                    toggleExpand(cvWrapper);
+                }
+            });
+        
+            lettreWrapper.addEventListener('click', function(e) {
+                if (e.target.tagName !== 'A') {
+                    toggleExpand(lettreWrapper);
+                }
+            });
+        
+            overlay.addEventListener('click', function() {
+                cvWrapper.classList.remove('expanded');
+                lettreWrapper.classList.remove('expanded');
+                overlay.style.display = 'none';
+            });
+        });
+        </script>
+        
 </body>
 </html>
